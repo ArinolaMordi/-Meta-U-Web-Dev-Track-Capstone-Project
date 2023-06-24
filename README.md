@@ -29,6 +29,22 @@ I want to get video tutorials that are engaging and age-appropriate, So that I c
 As a reader ,
 I want to have clear and simple written instructions in the projects, So that I can read and understand the steps easily.
 
+As a visual learner,
+I want to have more visual representation in the projects, such as diagrams and illustrations,
+So that I can understand and follow the instructions better. 
+
+As a Tiny Thinker user,
+I want the messaging feature to be intuitive and easy to use,
+So that I can navigate and interact with college students without difficulty.
+
+As a Tiny Thinker user,
+I want to have a messaging feature where I can communicate with college students studying mechanical engineering,
+So that I can ask questions, seek guidance, and receive mentorship from them.
+
+As a Tiny Thinker user ,
+I want to be able to register with a parent's email,
+So that I can have a personalized account and access age-appropriate content.
+
 
 
 
