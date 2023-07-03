@@ -9,8 +9,11 @@ Name: John Thomas
 Age: 9
 
 Background: Curious child exploring hardware and assembly. No prior experience. Interested in mechanical engineering.
+
 Goals: Access fun projects, Connect with college students for guidance, Prefer visual representation
+
 Challenges: Lack of experience, Limited resources , Difficulty with technical language
+
 Expectations: Fun project library, Connection with college students, Visual representation, Step-by-step instructions, Progress tracking
 
 User Stories : 
