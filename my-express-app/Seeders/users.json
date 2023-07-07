@@ -13,40 +13,5 @@
 "username": "insidernews",
 "email": "insidernews@example.com",
 "password": "news1234"
-},
-{
-"username": "worldupdates",
-"email": "worldupdates@example.com",
-"password": "abc123"
-},
-{
-"username": "breakingnews",
-"email": "breakingnews@example.com",
-"password": "123pass"
-},
-{
-"username": "politicswatch",
-"email": "politicswatch@example.com",
-"password": "watch789"
-},
-{
-"username": "businessinsider",
-"email": "businessinsider@example.com",
-"password": "insider789"
-},
-{
-"username": "technews",
-"email": "technews@example.com",
-"password": "tech123"
-},
-{
-"username": "lifestyleblog",
-"email": "lifestyleblog@example.com",
-"password": "blog456"
-},
-{
-"username": "sportsfanatic",
-"email": "sportsfanatic@example.com",
-"password": "fanatic123"
 }
 ]
