@@ -1,17 +1,15 @@
 .NavBar {
-    background-color: #00416c;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
+  background-color: #00416c;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .navLinks {
-    color: white;
-    margin: 20px;
-    margin-left: 240px;
-
+  color: white;
+  margin: 20px;
+  margin-left: 240px;
 }
 .Header {
-    color: white;
+  color: white;
 }
