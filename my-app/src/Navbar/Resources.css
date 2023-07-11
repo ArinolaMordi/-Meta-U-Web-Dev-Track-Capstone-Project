@@ -1,0 +1,18 @@
+.videosCard {
+  display: grid;
+  grid-gap: 30px;
+  display: inline-block;
+  justify-content: space-between;
+  }
+.videosCard:hover{
+transform: scale(1.00);
+background-color:#00416c;
+padding: 20px;
+}
+.description{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  
