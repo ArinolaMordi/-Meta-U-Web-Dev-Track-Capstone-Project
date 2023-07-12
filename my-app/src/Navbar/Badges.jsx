@@ -61,3 +61,4 @@ export default function Badges() {
     </div>
   );
 }
+// Bagdes were gotten from https://www.khanacademy.org/badges
