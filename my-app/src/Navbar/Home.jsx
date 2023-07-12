@@ -8,6 +8,7 @@ export default function Home() {
         <source
           src="https://cdn.shopify.com/videos/c/o/v/fe38a8d2e6b44a0db0c930ff2d72b65a.mp4"
           type="video/mp4"
+          // Video gotten from "https://www.crunchlabs.com/"
         />
       </video>
     </div>

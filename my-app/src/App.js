@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { UserContext } from "./UserContext";
+import Badges from "./NavBar/Badges";
+import Home from "./NavBar/Home";
+import LoginForm from "./NavBar/LoginForm";
+import Navbar from "./NavBar/NavBar";
 import React from "react";
-import Navbar from "./Navbar/Navbar";
-import Badges from "./Navbar/Badges";
-import Resources from "./Navbar/Resources";
-import Home from "./Navbar/Home";
-import SignupForm from "./Navbar/SignUpForm";
-import LoginForm from "./Navbar/LoginForm";
+import Resources from "./NavBar/Resources";
+import SignupForm from "./NavBar/SignUpForm";
 
 function App() {
   const [user, setUser] = useState(() => {

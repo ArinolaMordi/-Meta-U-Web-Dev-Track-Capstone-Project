@@ -19,13 +19,15 @@ export default function Resources() {
     fetchVideos();
   }, []);
   return (
-    <div className="videosGrid">
+    <div className="videos">
       <h1> Resources </h1>
+      <div className="videosGrid">
       {ttvideos.map((ttvideo) => (
         <div className= "videosCard" key={ttvideo.id}>
           <iframe 
-            width="580"
+            width="400"
             height="315"
+            className="videoPlayer"
             src={ttvideo.YoutubeVideos} 
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -34,6 +36,8 @@ export default function Resources() {
           <p className="description">{ttvideo.Description}</p>
         </div>
       ))}
+
+      </div>
     </div>
   );
 }
