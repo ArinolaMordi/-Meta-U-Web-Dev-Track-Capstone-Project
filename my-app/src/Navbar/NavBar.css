@@ -1,4 +1,4 @@
-.NavBar {
+.navBar {
   background-color: #00416c;
   display: flex;
   justify-content: flex-end;
@@ -10,6 +10,6 @@
   margin: 20px;
   margin-left: 240px;
 }
-.Header {
+.header {
   color: white;
 }

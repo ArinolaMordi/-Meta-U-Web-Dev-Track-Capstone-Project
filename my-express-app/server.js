@@ -1,11 +1,11 @@
 import cors from "cors";
-import morgan from "morgan";
 import express from "express";
+import morgan from "morgan";
 import session from "express-session";
-import userRoutes from "./Routes/users.js";
-import { Videos } from "./models/index.js";
 import SequelizeStoreInit from "connect-session-sequelize";
 import { sequelize } from "./Database.js";
+import userRoutes from "./Routes/users.js";
+import { Videos } from "./models/index.js";
 
 const app = express();
 app.use(
