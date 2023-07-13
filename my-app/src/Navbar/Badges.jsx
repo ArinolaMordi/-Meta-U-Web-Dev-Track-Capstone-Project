@@ -109,3 +109,4 @@ export default function Badges({ watchedVideosCount }) {
     </div>
   );
 }
+// Bagdes were gotten from https://www.khanacademy.org/badges
