@@ -1,9 +1,8 @@
-import React from "react";
-import { useState, useEffect } from "react";
 import "./Resources.css";
-import Badges from "./Badges";
+import { useState, useEffect } from "react";
+import React from "react";
 
-export default function Resources({ handleVideoWatched , watchedVideosCount}) {
+export default function Resources({ handleVideoWatched, watchedVideosCount }) {
   const [ttvideos, setTTVideos] = useState([]);
 
   useEffect(() => {
@@ -19,6 +18,15 @@ export default function Resources({ handleVideoWatched , watchedVideosCount}) {
     };
     fetchVideos();
   }, []);
+  const handleMarkAsWatched = (videoId) => {
+    handleVideoWatched(videoId);
+
+    setTTVideos((prevVideos) =>
+      prevVideos.map((video) =>
+        video.id === videoId ? { ...video, isWatched: true } : video,
+      ),
+    );
+  };
 
   return (
     <div className="videos">
@@ -37,10 +45,14 @@ export default function Resources({ handleVideoWatched , watchedVideosCount}) {
             />
             <p className="description">{ttvideo.Description}</p>
             <button
-              onClick={() => handleVideoWatched(ttvideo.id)}
-              className="watchedButton"
+              onClick={() => {
+                window.alert("You are about to mark this video as watched.");
+                handleMarkAsWatched(ttvideo.id);
+              }}
+              className={`watchedButton ${ttvideo.isWatched ? "disabled" : ""}`}
+              disabled={ttvideo.isWatched}
             >
-              Mark as Watched
+              {ttvideo.isWatched ? "Watched" : "Mark as Watched"}
             </button>
           </div>
         ))}

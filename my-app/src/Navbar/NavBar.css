@@ -1,10 +1,9 @@
 .navBar {
-  background-color: #00416c;
+  background-color: #8aaae5;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-
 .navLinks {
   color: white;
   margin: 20px;

@@ -1,11 +1,11 @@
+import { sequelize } from "./Database.js";
+import { Videos } from "./models/index.js";
 import cors from "cors";
 import express from "express";
 import morgan from "morgan";
-import session from "express-session";
 import SequelizeStoreInit from "connect-session-sequelize";
-import { sequelize } from "./Database.js";
+import session from "express-session";
 import userRoutes from "./Routes/users.js";
-import { Videos } from "./models/index.js";
 
 const app = express();
 app.use(
@@ -16,7 +16,7 @@ app.use(
       "http://localhost:3006",
     ],
     credentials: true,
-  })
+  }),
 );
 app.use(express.json()); // Middleware for parsing JSON bodies from HTTP requests
 app.use(morgan());
@@ -36,7 +36,7 @@ app.use(
       secure: false,
       expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
     },
-  })
+  }),
 );
 sessionStore.sync();
 
