@@ -1,7 +1,7 @@
-import bcrypt from "bcrypt";
-import express from "express";
 import { Op } from "sequelize";
 import { User } from "../models/user.js";
+import bcrypt from "bcrypt";
+import express from "express";
 
 const router = express.Router();
 
