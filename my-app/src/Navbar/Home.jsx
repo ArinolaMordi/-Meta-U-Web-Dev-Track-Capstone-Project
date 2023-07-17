@@ -11,6 +11,7 @@ export default function Home() {
           // Video gotten from "https://www.crunchlabs.com/"
         />
       </video>
+      <p>THINK LIKE AN ENGINEER</p>
     </div>
   );
 }
