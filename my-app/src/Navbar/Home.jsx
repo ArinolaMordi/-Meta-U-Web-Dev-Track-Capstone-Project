@@ -42,8 +42,7 @@ export default function Home() {
         <img
           src={ligthbulb}
           alt="Thinking "
-          style={{ height: "300px", width: "300px" }}
-        />
+          style={{ height: "300px", width: "300px" }} />
 
         {/* // image gotten from https://www.alamy.com/funny-child-boy-student-with-lightbulb-brainstorming-and-idea-concept-image248752105.html */}
       </div>
