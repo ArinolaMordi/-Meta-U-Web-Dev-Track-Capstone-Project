@@ -1,6 +1,7 @@
 import "./Resources.css";
 import { useState, useEffect } from "react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Resources({ handleVideoWatched, watchedVideosCount }) {
   const [ttvideos, setTTVideos] = useState([]);
@@ -31,6 +32,7 @@ export default function Resources({ handleVideoWatched, watchedVideosCount }) {
   return (
     <div className="videos">
       <h1> Resources </h1>
+      <Link to="/recommendations">Daily Recommendation</Link>
       <div className="videosGrid">
         {ttvideos.map((ttvideo) => (
           <div className="videosCard" key={ttvideo.id}>

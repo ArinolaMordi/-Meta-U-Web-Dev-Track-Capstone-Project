@@ -50,6 +50,29 @@ app.get("/videos", async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+app.get("/recommendations", async (req, res) => {
+  const selectedDifficulty = req.query.Difficulty;
+  const selectedAgeGroup = req.query.AgeGroup;
+  const selectedInterests = req.query.Interests;
+
+  try {
+    // Use Sequelize ORM to find the matching videos in the database
+    const videos = await Videos.findAll({
+      where: {
+        Difficulty: selectedDifficulty,
+        AgeGroup: selectedAgeGroup,
+        Interest: selectedInterests,
+      },
+    });
+
+    res.json(videos);
+  } catch (err) {
+    console.error(err);
+
+    res.status(500).json({ error: "An error occurred while fetching data." });
+  }
+});
+
 sequelize
   .sync({ alter: true })
   .then(() => {
