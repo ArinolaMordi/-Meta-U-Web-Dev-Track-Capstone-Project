@@ -1,3 +1,32 @@
 .generalDiv {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  column-gap: 10px;
+  margin-left: 10px;
+}
+.badges {
+  align-self: center;
+  border-style: solid;
+  border-width: 10px;
+  color: #8aaae5;
+  height: 600px;
+  border-radius: 30px;
+  /* background-color: #1f2b43; */
+}
+.words {
+  font-family: "Pacifico", cursive;
+  font-size: 25px;
+  font-weight: bold;
+  font-style: italic;
+  color: #8aaae5;
+}
+.headerWords {
+  color: #8aaae5;
+  margin-left: 660px;
+  font-size: 40px;
+}
+.dropDownBtn {
+  border-radius: 30px;
+  background-color: #8aaae5;
+  font-style: italic;
 }

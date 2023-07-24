@@ -4,21 +4,18 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* max-width: 400px; */
+  max-width: 400px;
+  max-height: 410.5 px;
 }
-
 .videosCard:hover {
   transform: scale(1);
-  background-color: #00416c;
+  background-color: #8aaae5;
   padding: 20px;
 }
-
 .description {
-  /* white-space: nowrap; */
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .videosGrid {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -26,19 +23,21 @@
   column-gap: 15px;
   row-gap: 15px;
 }
-
 .videoPlayer {
   border-radius: 40px;
 }
-
 .tinyThinker {
   font-size: 40px;
   color: #00416c;
 }
-
 .uploadBtn {
   border-radius: 5px;
   height: 40px;
   width: 200px;
   margin-left: 660px;
+}
+.watchedButton {
+  width: 150px;
+  border-radius: 20px;
+  font-style: italic;
 }
