@@ -6,6 +6,7 @@ import morgan from "morgan";
 import SequelizeStoreInit from "connect-session-sequelize";
 import session from "express-session";
 import userRoutes from "./Routes/users.js";
+import { Op } from "sequelize";
 
 const app = express();
 app.use(
@@ -50,28 +51,46 @@ app.get("/videos", async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+
+
+
 app.get("/recommendations", async (req, res) => {
   const selectedDifficulty = req.query.Difficulty;
   const selectedAgeGroup = req.query.AgeGroup;
-  const selectedInterests = req.query.Interests;
+  let selectedInterests = req.query.Interests;
+
+  // Check if multiple interests are selected, split them into an array if true
+  if (selectedInterests.includes(',')) {
+    selectedInterests = selectedInterests.split(',').map(interest => interest.trim());
+  } else {
+    selectedInterests = [selectedInterests];
+  }
 
   try {
-    // Use Sequelize ORM to find the matching videos in the database
     const videos = await Videos.findAll({
       where: {
         Difficulty: selectedDifficulty,
         AgeGroup: selectedAgeGroup,
-        Interest: selectedInterests,
       },
     });
 
-    res.json(videos);
+    // Filter videos by interest manually
+    const filteredVideos = videos.filter(video => {
+      // Split the video's interests into an array
+      const videoInterests = video.Interest.split(',').map(interest => interest.trim());
+      
+      // Check if any of the video's interests are in the selected interests
+      return videoInterests.some(interest => selectedInterests.includes(interest));
+    });
+
+    res.json(filteredVideos);
   } catch (err) {
     console.error(err);
 
     res.status(500).json({ error: "An error occurred while fetching data." });
   }
 });
+
 
 sequelize
   .sync({ alter: true })

@@ -31,11 +31,12 @@ const newSelectedInterests = selectedInterests.includes(interest)
 setSelectedInterests(newSelectedInterests);
 };
 const handleSubmit = async () => {
-const queryParams = new URLSearchParams({
-Difficulty: selectedDifficulty,
-AgeGroup: selectedAgeGroup,
-Interests: selectedInterests,
-}).toString();
+    console.log (selectedInterests)
+    const queryParams = new URLSearchParams({
+      Difficulty: selectedDifficulty,
+      AgeGroup: selectedAgeGroup,
+      Interests: selectedInterests.join(" , "), 
+    }).toString();
 
 
 try {
