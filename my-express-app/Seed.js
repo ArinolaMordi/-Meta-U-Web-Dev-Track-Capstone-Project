@@ -22,13 +22,13 @@ const seedDatabase = async () => {
     await sequelize.sync({ alter: true });
 
     // Then seed the User and Post data
-    await User.bulkCreate(userData);
+    await User.bulkCreate(userData, { ignoreDuplicates: true });
     console.log("User data has been seeded!");
 
-    await Post.bulkCreate(postData);
+    await Post.bulkCreate(postData, { ignoreDuplicates: true });
     console.log("Post data has been seeded!");
 
-    await Videos.bulkCreate(videoData);
+    await Videos.bulkCreate(videoData, { ignoreDuplicates: true });
     console.log("Videos data has been seeded");
   } catch (error) {
     console.error("Error seeding data:", error);
