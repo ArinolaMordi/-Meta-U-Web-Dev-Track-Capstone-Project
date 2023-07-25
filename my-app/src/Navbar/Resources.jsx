@@ -32,7 +32,7 @@ export default function Resources({ handleVideoWatched, watchedVideosCount }) {
   return (
     <div className="videos">
       <h1> Resources </h1>
-      <Link to="/recommendations">Daily Recommendation</Link>
+      <Link to="/recommendations">Daily Recommendations</Link>
       <div className="videosGrid">
         {ttvideos.map((ttvideo) => (
           <div className="videosCard" key={ttvideo.id}>
