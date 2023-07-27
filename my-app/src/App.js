@@ -9,6 +9,7 @@ import React from "react";
 import Resources from "./NavBar/Resources";
 import SignupForm from "./NavBar/SignUpForm";
 import Recommendation from "./Recommendation";
+import MapView from "./MapView";
 
 
 
@@ -49,6 +50,7 @@ function App() {
     console.log(`Video ${videoId} marked as watched`);
   };
 
+
   return (
     <div>
       <UserContext.Provider value={{ user, updateUser }}>
@@ -73,7 +75,7 @@ function App() {
             <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignupForm />} />
             <Route path="/recommendations" element={<Recommendation />} />
-
+            <Route path ="/maps" element= {<MapView/>} />
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>

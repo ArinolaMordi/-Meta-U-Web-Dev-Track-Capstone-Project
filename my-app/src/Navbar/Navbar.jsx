@@ -21,6 +21,7 @@ export default function Navbar() {
       <Link to="/signup" className="navLinks">
         Sign Up{" "}
       </Link>
+      <Link to= "/maps" className="navLinks">Find a Tiny Thinker </Link>
     </div>
   );
 }
