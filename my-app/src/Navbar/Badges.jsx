@@ -1,5 +1,4 @@
 import "./Badges.css";
-import { IoMdArrowDropdownCircle } from "react-icons/io";
 import { LiaIdBadgeSolid } from "react-icons/lia";
 import { useState, useEffect } from "react";
 import React from "react";
@@ -11,45 +10,6 @@ export default function Badges({ watchedVideosCount }) {
   const [earthbadgegotten, setEarthbadgegotten] = useState(false);
   const [moonbadgegotten, setMoonbagdegotten] = useState(false);
   const [meteoritebadgesgotten, setMeteoritebadgesgotten] = useState(false);
-  const [showmessage, setShowmessage] = useState(false);
-  const handleBadges = () => {
-    if (watchedVideosCount >= 5) {
-      setChallengePatchesgotten(true);
-    } else {
-      setChallengePatchesgotten(false);
-      setShowmessage(true);
-    }
-    if (watchedVideosCount >= 10) {
-      setBlackholegotten(true);
-    } else {
-      setBlackholegotten(false);
-      setShowmessage(true);
-    }
-    if (watchedVideosCount >= 15) {
-      setSunbagdegotten(true);
-    } else {
-      setSunbagdegotten(false);
-      setShowmessage(true);
-    }
-    if (watchedVideosCount >= 20) {
-      setEarthbadgegotten(true);
-    } else {
-      setEarthbadgegotten(false);
-      setShowmessage(true);
-    }
-    if (watchedVideosCount >= 25) {
-      setMoonbagdegotten(true);
-    } else {
-      setMoonbagdegotten(false);
-      setShowmessage(true);
-    }
-    if (watchedVideosCount >= 30) {
-      setMeteoritebadgesgotten(true);
-    } else {
-      setMeteoritebadgesgotten(false);
-      setShowmessage(true);
-    }
-  };
 
   useEffect(() => {
     console.log("watchedVideosCount:", watchedVideosCount);
@@ -101,11 +61,6 @@ export default function Badges({ watchedVideosCount }) {
           />
           <h4 className="words">Challenge Patches</h4>
 
-          <button className="dropDownBtn" onClick={handleBadges}>
-            Click here to see your progress
-            <IoMdArrowDropdownCircle size={30} color="white" />
-          </button>
-
           <div>
             {challengePatchesgotten ? (
               <p>
@@ -114,7 +69,7 @@ export default function Badges({ watchedVideosCount }) {
                 challenges.
               </p>
             ) : (
-              <p>{showmessage ? "You are not there yet. Keep going!" : ""}</p>
+              <p>You are not there yet. Keep going!</p>
             )}
           </div>
         </div>
@@ -128,19 +83,14 @@ export default function Badges({ watchedVideosCount }) {
           />
 
           <h4 className="words">Black Hole Badges</h4>
-          <button className="dropDownBtn" onClick={handleBadges}>
-            Click here to see your progress{" "}
-            <IoMdArrowDropdownCircle size={30} color="white" />
-          </button>
 
           <div>
             {blackholegotten ? (
               <p>Congrats! You've earned the Black Hole Badges. </p>
             ) : (
               <p>
-                {showmessage
-                  ? "Black Hole badges are a symbol of deep knowledge and mastery. Keep exploring!"
-                  : ""}
+                Black Hole badges are a symbol of deep knowledge and mastery.
+                Keep exploring!
               </p>
             )}
           </div>
@@ -155,23 +105,15 @@ export default function Badges({ watchedVideosCount }) {
           />
 
           <h4 className="words">Sun Badges</h4>
-          <button className="dropDownBtn" onClick={handleBadges}>
-            Click here to see your progress{" "}
-            <IoMdArrowDropdownCircle size={30} color="white" />
-          </button>
 
           <div>
             {sunbadgegotten ? (
               <p>
                 Congrats! You've earned the Sun Badge. Sun badges symbolize
-                brightness and knowledge. Keep shining!"{" "}
+                brightness and knowledge. Keep shining!
               </p>
             ) : (
-              <p>
-                {showmessage
-                  ? "Keep pushing forward! You're getting closer to earning it!"
-                  : ""}
-              </p>
+              <p>Keep pushing forward! You're getting closer to earning it!</p>
             )}
           </div>
         </div>
@@ -184,19 +126,14 @@ export default function Badges({ watchedVideosCount }) {
             style={{ width: "200px", height: "200px" }}
           />
           <h4 className="words"> Earth Badges</h4>
-          <button className="dropDownBtn" onClick={handleBadges}>
-            Click here to see your progress{" "}
-            <IoMdArrowDropdownCircle size={30} color="white" />
-          </button>
 
           <div>
             {earthbadgegotten ? (
               <p>Congrats! You've earned the Earth Badges. </p>
             ) : (
               <p>
-                {showmessage
-                  ? "Earth badges are rare. They require a significant amount of learning. Keep going!"
-                  : ""}
+                Earth badges are rare. They require a significant amount of
+                learning. Keep going!
               </p>
             )}
           </div>
@@ -210,19 +147,14 @@ export default function Badges({ watchedVideosCount }) {
             style={{ width: "200px", height: "200px" }}
           />
           <h4 className="words">Moon Badges</h4>
-          <button className="dropDownBtn" onClick={handleBadges}>
-            Click here to see your progress{" "}
-            <IoMdArrowDropdownCircle size={30} color="white" />
-          </button>
 
           <div>
             {moonbadgegotten ? (
               <p>Congrats! You've earned the Moon Badges. </p>
             ) : (
               <p>
-                {showmessage
-                  ? "Moon badges are a symbol of dedication and progress. You're getting closer!"
-                  : ""}
+                Moon badges are a symbol of dedication and progress. You're
+                getting closer!
               </p>
             )}
           </div>
@@ -236,19 +168,14 @@ export default function Badges({ watchedVideosCount }) {
             style={{ width: "200px", height: "200px" }}
           />
           <h4 className="words">Meteorite Badges</h4>
-          <button className="dropDownBtn" onClick={handleBadges}>
-            Click here to see your progress{" "}
-            <IoMdArrowDropdownCircle size={30} color="white" />
-          </button>
 
           <div>
             {meteoritebadgesgotten ? (
               <p>Congrats! You've earned the Meteorite Badges. </p>
             ) : (
               <p>
-                {showmessage
-                  ? "Meteorite badges are a mark of exceptional achievement. Keep pushing yourself!"
-                  : ""}
+                Meteorite badges are a mark of exceptional achievement. Keep
+                pushing yourself!
               </p>
             )}
           </div>
