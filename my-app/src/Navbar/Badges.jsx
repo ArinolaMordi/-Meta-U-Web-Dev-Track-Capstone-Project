@@ -216,7 +216,7 @@ export default function Badges({ watchedVideosCount }) {
           </button>
 
           <div>
-            {earthbadgegotten ? (
+            {moonbadgegotten ? (
               <p>Congrats! You've earned the Moon Badges. </p>
             ) : (
               <p>

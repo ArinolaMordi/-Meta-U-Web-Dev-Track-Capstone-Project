@@ -8,6 +8,9 @@ import Navbar from "./NavBar/Navbar";
 import React from "react";
 import Resources from "./NavBar/Resources";
 import SignupForm from "./NavBar/SignUpForm";
+import Recommendation from "./Recommendation";
+
+
 
 function App() {
   const [user, setUser] = useState(() => {
@@ -69,6 +72,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignupForm />} />
+            <Route path="/recommendations" element={<Recommendation />} />
+
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>
