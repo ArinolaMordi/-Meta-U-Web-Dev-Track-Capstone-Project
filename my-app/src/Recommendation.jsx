@@ -30,30 +30,35 @@ export default function Recommendation() {
     setSelectedInterests(newSelectedInterests);
   };
   const handleSubmit = async () => {
+    if (!selectedDifficulty || !selectedAgeGroup || selectedInterests.length === 0) {
+      alert("Please select the required fields before getting recommendations.");
+      return; 
+    }
     
     const queryParams = new URLSearchParams({
       Difficulty: selectedDifficulty,
       AgeGroup: selectedAgeGroup,
       Interests: selectedInterests.join(" , "),
     }).toString();
-
+  
     try {
       const response = await fetch(
         `http://localhost:3000/recommendations?${queryParams}`,
       );
-
+  
       if (!response.ok) {
         throw new Error("Network response was not OK");
       }
-
+  
       const data = await response.json();
       setRecommendations(data);
-
+  
       console.log(data);
     } catch (error) {
       console.error("Error fetching recommendations:", error);
     }
   };
+  
 
   return (
     <div className="generalDiv">
