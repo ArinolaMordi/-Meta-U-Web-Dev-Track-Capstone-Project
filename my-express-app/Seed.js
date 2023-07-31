@@ -1,20 +1,24 @@
-import { fileURLToPath } from "url";
-import { sequelize } from "./Database.js";
-import { User, Post, Videos } from "./models/index.js";
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
+
+import { sequelize } from "./Database.js";
+import { Post, Uploads, User, Videos } from "./models/index.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const userData = JSON.parse(
-  fs.readFileSync(path.resolve(__dirname, "./seeders/users.json"), "utf8"),
+  fs.readFileSync(path.resolve(__dirname, "./seeders/users.json"), "utf8")
 );
 const postData = JSON.parse(
-  fs.readFileSync(path.resolve(__dirname, "./seeders/posts.json"), "utf8"),
+  fs.readFileSync(path.resolve(__dirname, "./seeders/posts.json"), "utf8")
 );
 const videoData = JSON.parse(
-  fs.readFileSync(path.resolve(__dirname, "./seeders/videos.json"), "utf8"),
+  fs.readFileSync(path.resolve(__dirname, "./seeders/videos.json"), "utf8")
+);
+const uploadData = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, "./seeders/uploads.json"), "utf8")
 );
 const seedDatabase = async () => {
   try {
@@ -30,6 +34,8 @@ const seedDatabase = async () => {
 
     await Videos.bulkCreate(videoData, { ignoreDuplicates: true });
     console.log("Videos data has been seeded");
+    await Uploads.bulkCreate(uploadData, { ignoreDuplicates: true });
+    console.log("Uploads have been seeded");
   } catch (error) {
     console.error("Error seeding data:", error);
   } finally {

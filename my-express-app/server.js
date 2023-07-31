@@ -1,12 +1,19 @@
-import { sequelize } from "./Database.js";
-import { Videos } from "./models/index.js";
+import SequelizeStoreInit from "connect-session-sequelize";
 import cors from "cors";
 import express from "express";
-import morgan from "morgan";
-import SequelizeStoreInit from "connect-session-sequelize";
 import session from "express-session";
+import morgan from "morgan";
+import multer from "multer";
+import path from "path";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+import { sequelize } from "./Database.js";
 import userRoutes from "./Routes/users.js";
-import { Op } from "sequelize";
+import { Uploads, Videos } from "./models/index.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 app.use(
@@ -17,9 +24,9 @@ app.use(
       "http://localhost:3006",
     ],
     credentials: true,
-  }),
+  })
 );
-app.use(express.json()); // Middleware for parsing JSON bodies from HTTP requests
+app.use(express.json());
 app.use(morgan());
 
 const SequelizeStore = SequelizeStoreInit(session.Store);
@@ -37,10 +44,9 @@ app.use(
       secure: false,
       expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
     },
-  }),
+  })
 );
 sessionStore.sync();
-
 app.use(userRoutes);
 
 app.get("/videos", async (req, res) => {
@@ -51,7 +57,53 @@ app.get("/videos", async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
+});
 
+const upload = multer({
+  storage: storage,
+  limit: { fileSize: "1000000" },
+  fileFilter: (req, file, cb) => {
+    if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
+      return cb(new Error("only image files allowed"), false);
+    }
+    cb(null, true);
+  },
+});
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.post("/uploads", upload.single("Image"), async (req, res) => {
+  try {
+    const { ProjectName, Describe, Location } = req.body;
+    const imageUrl = req.file.filename;
+    console.log(__dirname);
+    const project = await Uploads.create({
+      ProjectName,
+      Describe,
+      Location,
+      Image: imageUrl,
+    });
+    res.json(project);
+    console.log(project);
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ message: "Server Error" });
+  }
+});
+app.get("/uploads", async (req, res) => {
+  try {
+    const uploads = await Uploads.findAll();
+    res.json(uploads);
+    console.log(uploads);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 const difficultyLevels = ["Beginner", "Intermediate", "Hard"];
 const ageGroupLevels = ["5-7", "7-9", "9-11"];
 
@@ -73,7 +125,7 @@ app.get("/recommendations", async (req, res) => {
 
     let scoredVideos = videos.map((video) => {
       const videoInterests = video.Interest.split(",").map((interest) =>
-        interest.trim(),
+        interest.trim()
       );
 
       let interestScore = videoInterests.reduce((score, interest) => {
@@ -86,7 +138,7 @@ app.get("/recommendations", async (req, res) => {
       } else {
         let levelDiff = Math.abs(
           difficultyLevels.indexOf(video.Difficulty) -
-            difficultyLevels.indexOf(selectedDifficulty),
+            difficultyLevels.indexOf(selectedDifficulty)
         );
         if (levelDiff === 1) {
           difficultyScore = 8;
@@ -101,7 +153,7 @@ app.get("/recommendations", async (req, res) => {
       } else {
         let levelDiff = Math.abs(
           ageGroupLevels.indexOf(video.AgeGroup) -
-            ageGroupLevels.indexOf(selectedAgeGroup),
+            ageGroupLevels.indexOf(selectedAgeGroup)
         );
         if (levelDiff === 1) {
           ageGroupScore = 8;
@@ -121,7 +173,6 @@ app.get("/recommendations", async (req, res) => {
       res.json({
         message:
           "No videos found matching the selected criteria. Here are some suggestions:",
-       
       });
     } else {
       let filteredVideos = scoredVideos.map(({ video }) => video);
