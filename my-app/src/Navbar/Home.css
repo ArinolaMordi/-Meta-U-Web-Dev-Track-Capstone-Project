@@ -1,12 +1,40 @@
+body {
+  background-color: #f0f8ff;
+}
 .videoDiv {
   display: block;
   width: 100%;
   justify-content: center;
   height: 100%;
+  
 }
 .theHow {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 20px;
+}
+.Welcome {
+  justify-items: center;
+ }
+.theHowGeneralDiv {
+  background-color: white;
+}
+.WelcomeDiv {
+  display: grid;
+  grid-template-columns: auto auto;
+ 
+}
+
+.overLay {
+  position: absolute; 
+  top: 400px;
+  left: 280px;
+  transform: translate(-50%, -50%); 
+  color: white;
+  background-color: #00416cb3; 
+  padding: 10px;
+  width: 500px;
+  height: 400px;
+  border: groove 0.5em #8aaae5;
+  border-radius: 10% 30% 50% 70%;
 }
