@@ -1,4 +1,12 @@
 import React from "react";
+import { BiSolidPhoneCall } from "react-icons/bi";
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { FaTiktok } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
+import { HiOutlineLightBulb } from "react-icons/hi";
+import { MdEmail } from "react-icons/md";
 
 import engineering from "../engineering.jpg";
 import explore from "../explore.jpg";
@@ -29,6 +37,7 @@ export default function Home() {
           </h3>
         </div>
       </div>
+
       <div className="WelcomeDiv">
         <h1
           className="Welcome"
@@ -57,11 +66,9 @@ export default function Home() {
       </div>
 
       <div className="theHowGeneralDiv">
-        <h1 style={{ marginLeft: "540px", fontFamily: "fantasy" }}>
-          How it works here !
-        </h1>
+        <h1 style={{ fontFamily: "fantasy" }}>How it works here !</h1>
         <div className="theHow">
-          <div className="Images">
+          <div className="images">
             <img
               src={engineering}
               alt="Engineering"
@@ -72,7 +79,7 @@ export default function Home() {
           {/* image gotten from https://kidsdiscover.com/shop/issues/engineering-for-kids/
            */}
 
-          <div className="Images">
+          <div className="images">
             <img
               src={explore}
               alt="explore"
@@ -82,7 +89,7 @@ export default function Home() {
           </div>
           {/* image gotten from https://www.gettyimages.fi/photos/discover-engineering-family-day */}
 
-          <div className="Images">
+          <div className="images">
             <img
               src={ligthbulb}
               alt="Thinking "
@@ -91,6 +98,115 @@ export default function Home() {
             <h2 style={{ fontFamily: "fantasy" }}>THINK LIKE AN ENGINEER</h2>{" "}
           </div>
           {/* // image gotten from https://www.alamy.com/funny-child-boy-student-with-lightbulb-brainstorming-and-idea-concept-image248752105.html */}
+        </div>
+      </div>
+      <div className="features">
+        <div className="feature">
+          <h2>Badges</h2>
+          <p style={{ fontFamily: "fantasy" }}>
+            Cool badges you get awarded when you watch and complete videos!
+          </p>
+          <div className="linkBox">
+            {" "}
+            <a
+              href="/badges"
+              style={{ fontFamily: "fantasy", marginLeft: "20px" }}
+            >
+              Go to Badges
+            </a>
+          </div>
+        </div>
+
+        <div className="feature">
+          <h2>Resources</h2>
+          <p style={{ fontFamily: "fantasy" }}>
+            Check out our cool video resources that expose you to new concepts.
+          </p>
+          <div className="linkBox">
+            {" "}
+            <a
+              href="/resources"
+              style={{ fontFamily: "fantasy", marginLeft: "20px" }}
+            >
+              Go to Resources
+            </a>
+          </div>
+        </div>
+
+        <div className="feature">
+          <h2>Map View</h2>
+          <p style={{ fontFamily: "fantasy" }}>
+            Explore the map view of all Tiny Thinkers and their uploaded
+            projects.
+          </p>
+          <div className="linkBox">
+            {" "}
+            <a
+              href="/maps"
+              style={{ fontFamily: "fantasy", marginLeft: "20px" }}
+            >
+              {" "}
+              Go to Map View
+            </a>
+          </div>
+        </div>
+      </div>
+      <footer className="footer" style={{ alignItems: "center" }}>
+        <div className="footerImage" style={{ marginTop: "20pX" }}>
+          <img
+            src="https://cdn.shopify.com/s/files/1/0634/1535/3575/files/footer-logo.svg?v=1651040243"
+            alt="CrunchLabs"
+            width="200"
+            height="80"
+            style={{ backgroundColor: "#00416c", borderRadius: "30px" }}
+          />
+          <h3 style={{ marginLeft: "50px", color: "#00416c" }}> THINK </h3>
+          <h3>
+            LIKE AN ENGINEER
+            <br></br>
+            The Tiny Thinkers Family <HiOutlineLightBulb />
+          </h3>
+        </div>
+        <div className="footerContact" style={{ fontSize: "35px" }}>
+          <p>
+            {" "}
+            <BiSolidPhoneCall /> +1 602 367 895
+          </p>
+          <p>
+            {" "}
+            <MdEmail /> tinythinkers@gmail.com
+          </p>
+          <FaInstagram /> <FaLinkedin /> <FaTiktok /> <FaFacebook />{" "}
+          <FaYoutube />
+        </div>
+      </footer>
+      <div className="footerRows">
+        <div className="footerRow">
+          <p>SHOP</p>
+          <p>VIDEOS</p>
+          <p>SUMMER CAMP</p>
+          <p>EDUCATORS</p>
+        </div>
+        <div className="footerRow">
+          <p>ABOUT US</p>
+          <p>FAQS</p>
+          <p>ACCOUNT</p>
+          <p>CAREERS</p>
+        </div>
+        <div className="footerRow">
+          <p>PRIVACY POLICY</p>
+          <p>SHIPPING POLICY</p>
+          <p>REFUND POLICY</p>
+          <p>SUBSCRIPTION POLICY</p>
+        </div>
+        <div className="footerRow">
+          <p>TERMS & CONDITIONS</p>
+          <p>ACCESSIBILITY</p>
+          <p>PLATINUM TICKET SWEEPSTAKES</p>
+          <p>TINY THINKER CONTEST</p>
+        </div>
+        <div className="footerRow">
+          <p>© 2023 Tiny Thinkers LLC, - All Rights Reserved</p>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import "./Badges.css";
 import { LiaIdBadgeSolid } from "react-icons/lia";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 
 export default function Badges({ watchedVideosCount }) {
@@ -47,7 +47,7 @@ export default function Badges({ watchedVideosCount }) {
 
   return (
     <div className="theWhole">
-      <h1 className="headerWords">
+      <h1 className="headerWords" style={{ textDecoration: "none" }}>
         Badges <LiaIdBadgeSolid />
       </h1>
 

@@ -10,6 +10,7 @@
   border-width: 10px;
   color: #8aaae5;
   height: 600px;
+  border-radius: 30px;
 }
 .words {
   font-family: "Pacifico", cursive;
@@ -20,7 +21,7 @@
 }
 .headerWords {
   color: #8aaae5;
-  margin-left: 660px;
+  margin-left: 60px;
   font-size: 40px;
 }
 .dropDownBtn {
