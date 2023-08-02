@@ -1,3 +1,4 @@
+
 import {
   GoogleMap,
   InfoWindow,
@@ -12,6 +13,7 @@ const MapView = () => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: "AIzaSyCIdAofDyeBU8kc9VcVfBPGa30voIG7klc",
   });
+
   const center = useMemo(() => ({ lat: 37.4406279, lng: -122.1630952 }), []);
   <script
     async
@@ -83,6 +85,7 @@ const MapView = () => {
           center={center}
           zoom={10}
         >
+
           {markers.map((marker, index) => (
             <Marker
               key={index}
@@ -107,9 +110,12 @@ const MapView = () => {
             </InfoWindow>
           )}
         </GoogleMap>
+
       )}
     </div>
   );
 };
 
+
 export default MapView;
+
