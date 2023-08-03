@@ -91,9 +91,9 @@ const MapView = () => {
   }, [uploads, overlapRadius]);
 
   const zoomToOverlapRadius = (zoom) => {
-    return 0.5 / Math.pow(2, zoom - 3);
+    return 0.5 / Math.pow(2, zoom - 5);
   };
-
+ // https://stackoverflow.com/questions/9481228/math-and-java-find-an-available-index-from-a-scale-value
   return (
     <div className="maps">
       {!isLoaded ? (
@@ -109,13 +109,13 @@ const MapView = () => {
           mapContainerClassName="MapContainer"
           center={center}
           zoom={13}
-          onZoomChanged={() => {
+          onZoomChanged={() => { 
             if (mapRef.current) {
               const newZoom = mapRef.current.getZoom();
               setOverlapRadius(zoomToOverlapRadius(newZoom));
             }
           }}
-        >
+        >    
           {clusters.map((cluster, index) => (
             <Marker
               key={index}
