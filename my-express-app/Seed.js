@@ -3,7 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 import { sequelize } from "./Database.js";
-import { Post, Uploads, User, Videos } from "./models/index.js";
+import { Post, Uploads, User, Videos, Profile } from "./models/index.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,9 +17,10 @@ const postData = JSON.parse(
 const videoData = JSON.parse(
   fs.readFileSync(path.resolve(__dirname, "./seeders/videos.json"), "utf8")
 );
-const uploadData = JSON.parse(
-  fs.readFileSync(path.resolve(__dirname, "./seeders/uploads.json"), "utf8")
+const profileData = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, "./seeders/profiles.json"), "utf8")
 );
+
 const seedDatabase = async () => {
   try {
     // Sync all models that aren't already in the database
@@ -34,8 +35,9 @@ const seedDatabase = async () => {
 
     await Videos.bulkCreate(videoData, { ignoreDuplicates: true });
     console.log("Videos data has been seeded");
-    await Uploads.bulkCreate(uploadData, { ignoreDuplicates: true });
-    console.log("Uploads have been seeded");
+
+    await Profile.bulkCreate(profileData, { ignoreDuplicates: true });
+    console.log("Profile data has been seeded!");
   } catch (error) {
     console.error("Error seeding data:", error);
   } finally {
