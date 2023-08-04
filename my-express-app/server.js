@@ -129,53 +129,53 @@ app.get("/recommendations", async (req, res) => {
       );
 
       let interestScore = videoInterests.reduce((score, interest) => {
-        return score + (selectedInterests.includes(interest) ? 1 : 0);
+        return score + (selectedInterests.includes(interest) ? 6 : 0);
       }, 0);
 
       let difficultyScore;
       if (video.Difficulty === selectedDifficulty) {
-        difficultyScore = 10;
+        difficultyScore = 6;
       } else {
         let levelDiff = Math.abs(
           difficultyLevels.indexOf(video.Difficulty) -
             difficultyLevels.indexOf(selectedDifficulty)
         );
         if (levelDiff === 1) {
-          difficultyScore = 8;
+          difficultyScore = 3;
         } else if (levelDiff === 2) {
-          difficultyScore = 5;
+          difficultyScore = 1;
         }
       }
 
       let ageGroupScore;
       if (video.AgeGroup === selectedAgeGroup) {
-        ageGroupScore = 10;
+        ageGroupScore = 6;
       } else {
         let levelDiff = Math.abs(
           ageGroupLevels.indexOf(video.AgeGroup) -
             ageGroupLevels.indexOf(selectedAgeGroup)
         );
         if (levelDiff === 1) {
-          ageGroupScore = 8;
+          ageGroupScore = 3;
         } else if (levelDiff === 2) {
-          ageGroupScore = 5;
+          ageGroupScore = 1;
         }
       }
 
       let totalScore = difficultyScore + interestScore + ageGroupScore;
-
       return { video, score: totalScore };
     });
 
     scoredVideos.sort((a, b) => b.score - a.score);
 
-    if (scoredVideos[0].score === 0) {
+    const topVideos = scoredVideos.slice(0, 5);
+    if (topVideos.length === 0) {
       res.json({
         message:
           "No videos found matching the selected criteria. Here are some suggestions:",
       });
     } else {
-      let filteredVideos = scoredVideos.map(({ video }) => video);
+      const filteredVideos = topVideos.map(({ video }) => video);
       res.json(filteredVideos);
     }
   } catch (err) {
