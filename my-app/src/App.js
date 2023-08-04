@@ -60,6 +60,7 @@ function App() {
 
 
             <Route path ="/maps" element= {<MapView/>} />
+
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>
