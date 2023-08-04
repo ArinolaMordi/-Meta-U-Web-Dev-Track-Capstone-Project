@@ -4,8 +4,8 @@ import {
   Marker,
   useLoadScript,
 } from "@react-google-maps/api";
-import React, { useEffect, useMemo, useRef, useState } from "react";
 
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import "./MapView.css";
 
 const overlapRadius = 10;
@@ -14,12 +14,14 @@ const MapView = () => {
     googleMapsApiKey: "AIzaSyCIdAofDyeBU8kc9VcVfBPGa30voIG7klc",
   });
 
+
   const mapRef = useRef();
   const center = useMemo(() => ({ lat: 37.4406279, lng: -122.1638752 }), []);
   const [uploads, setUploads] = useState([]);
   const [clusters, setClusters] = useState([]);
   const [selectedCluster, setSelectedCluster] = useState(null);
   const [zoomLevel, setZoomLevel] = useState(13);
+
 
   useEffect(() => {
     const fetchLocation = async () => {
@@ -51,6 +53,7 @@ const MapView = () => {
       return null;
     }
   };
+
 
   function markersOverLap(marker1, marker2) {
     console.log(marker1);
@@ -96,7 +99,7 @@ const MapView = () => {
     fetchMarkers();
   }, [uploads, overlapRadius, zoomLevel]);
 
-  // https://stackoverflow.com/questions/45914412/get-distance-between-google-maps-markers-in-pixels-or-visual-distance
+// https://stackoverflow.com/questions/45914412/get-distance-between-google-maps-markers-in-pixels-or-visual-distance
   return (
     <div className="maps">
       {!isLoaded ? (
@@ -144,6 +147,7 @@ const MapView = () => {
                     />
                   </div>
                 ))}
+
               </div>
             </InfoWindow>
           )}
