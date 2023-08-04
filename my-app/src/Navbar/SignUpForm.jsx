@@ -1,5 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
 import { UserContext } from "../UserContext.js";
 
 const SignupForm = () => {
@@ -39,7 +40,7 @@ const SignupForm = () => {
         updateUser(loggedInUser);
 
         // Navigate to the home page after successful login
-        navigate("/");
+        navigate("/profile");
       } else {
         // Handle signup failure case
         alert("Signup failed");
@@ -51,7 +52,10 @@ const SignupForm = () => {
   };
 
   return (
-    <div className="signupFormContainer" style={{borderStyle: "solid" , maxWidth: "400px", color:"blue"}}>
+    <div
+      className="signupFormContainer"
+      style={{ borderStyle: "solid", maxWidth: "400px", color: "blue" }}
+    >
       <form className="signupForm" onSubmit={handleSubmit}>
         <h2>Sign Up</h2>
         <div className="formGroup">

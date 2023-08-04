@@ -1,5 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
 import { UserContext } from "../UserContext.js";
 
 const LoginForm = () => {
@@ -31,7 +32,7 @@ const LoginForm = () => {
         updateUser(loggedInUser);
 
         // Navigate to the home page after successful login
-        navigate("/");
+        navigate("/profile");
       } else {
         // Handle the login failure case
         alert("Login failed");
@@ -43,10 +44,10 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="login-form-container">
-      <form className="login-form" onSubmit={handleLogin}>
+    <div className="loginFormContainer">
+      <form className="loginForm" onSubmit={handleLogin}>
         <h2>Login</h2>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="username">Username:</label>
           <input
             type="text"
@@ -56,7 +57,7 @@ const LoginForm = () => {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="password">Password:</label>
           <input
             type="password"
