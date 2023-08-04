@@ -57,6 +57,7 @@ export default function PopUp({ isOpen, onClose }) {
     }
   };
   
+
   const handleChange = (event) => {
     const { name, value, type } = event.target;
     const inputValue = type === "file" ? event.target.files[0] : value;
@@ -76,6 +77,7 @@ export default function PopUp({ isOpen, onClose }) {
           Close
         </button>
         <h1>Upload your project and view on the map!</h1>
+
         <form
           onSubmit={handleSubmit}
           encType="multipart/form-data"

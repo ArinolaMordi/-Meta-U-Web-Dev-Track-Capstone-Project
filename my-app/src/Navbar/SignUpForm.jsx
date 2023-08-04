@@ -51,10 +51,10 @@ const SignupForm = () => {
   };
 
   return (
-    <div className="signup-form-container">
-      <form className="signup-form" onSubmit={handleSubmit}>
+    <div className="signupFormContainer" style={{borderStyle: "solid" , maxWidth: "400px", color:"blue"}}>
+      <form className="signupForm" onSubmit={handleSubmit}>
         <h2>Sign Up</h2>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="username">Username:</label>
           <input
             type="text"
@@ -64,7 +64,7 @@ const SignupForm = () => {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="email">Email:</label>
           <input
             type="email"
@@ -74,7 +74,7 @@ const SignupForm = () => {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="formGroup">
           <label htmlFor="password">Password:</label>
           <input
             type="password"

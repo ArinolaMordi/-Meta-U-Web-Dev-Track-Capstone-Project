@@ -29,12 +29,15 @@ function App() {
   const handleVideoWatched = (videoId) => {
     setWatchedVideosCount((prevCount) => prevCount + 1);
   };
+  const handleLogout = () => {
+    updateUser(null);
+  };
 
   return (
     <div>
       <UserContext.Provider value={{ user, updateUser }}>
         <BrowserRouter>
-          <Navbar />
+          <Navbar handleLogout={handleLogout} />
 
           <Routes>
             <Route
