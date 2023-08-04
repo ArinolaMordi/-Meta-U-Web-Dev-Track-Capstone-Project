@@ -1,11 +1,13 @@
-import "./Resources.css";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 
+import PopUp from "../PopUp";
+import "./Resources.css";
+
 export default function Resources({ handleVideoWatched, watchedVideosCount }) {
   const [ttvideos, setTTVideos] = useState([]);
-
+  const [uploadfeature, setUploadFeature] = useState(false);
   useEffect(() => {
     const fetchVideos = async () => {
       try {
@@ -24,9 +26,12 @@ export default function Resources({ handleVideoWatched, watchedVideosCount }) {
 
     setTTVideos((prevVideos) =>
       prevVideos.map((video) =>
-        video.id === videoId ? { ...video, isWatched: true } : video,
-      ),
+        video.id === videoId ? { ...video, isWatched: true } : video
+      )
     );
+  };
+  const handleUpload = () => {
+    setUploadFeature(!uploadfeature);
   };
 
   return (
@@ -63,10 +68,15 @@ export default function Resources({ handleVideoWatched, watchedVideosCount }) {
         <p className="tinyThinker">
           Hey Tiny Thinker ! Congratulations on completing the videos Upload
           your image here !
-          <button type="UploadButton" className="uploadBtn">
+          <button
+            onClick={handleUpload}
+            type="UploadButton"
+            className="uploadBtn"
+          >
             Upload here
           </button>
         </p>
+        <PopUp isOpen={uploadfeature} onClose={() => setUploadFeature(false)} />
       </div>
     </div>
   );
