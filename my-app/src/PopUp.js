@@ -81,7 +81,6 @@ export default function PopUp({ isOpen, onClose }) {
           Close
         </button>
         <h1>Upload your project and view on the map!</h1>
-
         <form
           onSubmit={handleSubmit}
           encType="multipart/form-data"
