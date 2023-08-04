@@ -47,6 +47,7 @@ export default function PopUp({ isOpen, onClose }) {
 
   const handlePlaceChanged = () => {
     const place = autocompleteRef.current.getPlace();
+
     if (place) {
       const { formatted_address } = place;
       setForm((prevForm) => ({

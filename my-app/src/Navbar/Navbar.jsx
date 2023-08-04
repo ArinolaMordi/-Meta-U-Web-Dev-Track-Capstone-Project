@@ -50,6 +50,7 @@ export default function Navbar({ handleLogout }) {
           </Link>
         </>
       )}
+
     </div>
   );
 }
