@@ -14,7 +14,6 @@ import Recommendation from "./Recommendation";
 import MapView from "./MapView";
 
 
-
 function App() {
   const [user, setUser] = useState(() => {
     const storedUser = localStorage.getItem("user");
@@ -58,6 +57,8 @@ function App() {
             <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignupForm />} />
             <Route path="/recommendations" element={<Recommendation />} />
+
+
             <Route path ="/maps" element= {<MapView/>} />
 
           </Routes>
