@@ -21,13 +21,11 @@ body {
 }
 h1 {
   text-align: center;
+  text-decoration: underline;
 }
 .WelcomeDiv {
   display: grid;
   grid-template-columns: auto auto;
-}
-h1 {
-  text-decoration: underline;
 }
 .overLay {
   position: absolute;

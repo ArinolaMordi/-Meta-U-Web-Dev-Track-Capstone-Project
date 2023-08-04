@@ -6,6 +6,7 @@ import { UserContext } from "../UserContext";
 export default function Profile() {
   const { user } = useContext(UserContext);
   const [profiles, setProfiles] = useState([]);
+  const [saved, setSaved] = useState();
   const initialFormState = {
     Age: "",
     Bio: "",
@@ -37,7 +38,7 @@ export default function Profile() {
         },
         body: JSON.stringify(updatedForm),
       });
-
+      setSaved(true)
       if (!response.ok) {
         throw new Error("Failed to save the project data.");
       }
@@ -135,7 +136,9 @@ export default function Profile() {
             />
           </label>
           <br />
-          <button type="submit">Save</button>
+          <button type="submit" disabled={saved}>
+            {saved ? "Saved" : "Save"}
+          </button>
         </form>
       )}
     </div>
