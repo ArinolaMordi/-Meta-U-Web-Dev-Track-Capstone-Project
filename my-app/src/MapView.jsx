@@ -8,17 +8,18 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 
 import "./MapView.css";
 
+const overlapRadius = 10;
 const MapView = () => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: "AIzaSyCIdAofDyeBU8kc9VcVfBPGa30voIG7klc",
   });
 
   const mapRef = useRef();
-  const center = useMemo(() => ({ lat: 37.4406279, lng: -122.1630952 }), []);
-  const [overlapRadius, setOverlapRadius] = useState(0.5);
+  const center = useMemo(() => ({ lat: 37.4406279, lng: -122.1638752 }), []);
   const [uploads, setUploads] = useState([]);
   const [clusters, setClusters] = useState([]);
   const [selectedCluster, setSelectedCluster] = useState(null);
+  const [zoomLevel, setZoomLevel] = useState(13);
 
   useEffect(() => {
     const fetchLocation = async () => {
@@ -51,13 +52,18 @@ const MapView = () => {
     }
   };
 
-  const markersOverLap = (marker1, marker2) => {
-    const latDiff = marker1.position.lat - marker2.position.lat;
-    const lngDiff = marker1.position.lng - marker2.position.lng;
-    return (
-      latDiff * latDiff + lngDiff * lngDiff < overlapRadius * overlapRadius
-    );
-  };
+  function markersOverLap(marker1, marker2) {
+    console.log(marker1);
+    console.log(marker2);
+    var p1 = mapRef.current.getProjection().fromLatLngToPoint(marker1.position);
+    var p2 = mapRef.current.getProjection().fromLatLngToPoint(marker2.position);
+    var pixelSize = Math.pow(2, -mapRef.current.getZoom());
+
+    var d =
+      Math.sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y)) /
+      pixelSize;
+    return d < overlapRadius;
+  }
 
   useEffect(() => {
     const fetchMarkers = async () => {
@@ -88,12 +94,9 @@ const MapView = () => {
     };
 
     fetchMarkers();
-  }, [uploads, overlapRadius]);
+  }, [uploads, overlapRadius, zoomLevel]);
 
-  const zoomToOverlapRadius = (zoom) => {
-    return 0.5 / Math.pow(2, zoom - 5);
-  };
- // https://stackoverflow.com/questions/9481228/math-and-java-find-an-available-index-from-a-scale-value
+  // https://stackoverflow.com/questions/45914412/get-distance-between-google-maps-markers-in-pixels-or-visual-distance
   return (
     <div className="maps">
       {!isLoaded ? (
@@ -109,13 +112,13 @@ const MapView = () => {
           mapContainerClassName="MapContainer"
           center={center}
           zoom={13}
-          onZoomChanged={() => { 
+          onZoomChanged={() => {
             if (mapRef.current) {
               const newZoom = mapRef.current.getZoom();
-              setOverlapRadius(zoomToOverlapRadius(newZoom));
+              setZoomLevel(newZoom);
             }
           }}
-        >    
+        >
           {clusters.map((cluster, index) => (
             <Marker
               key={index}

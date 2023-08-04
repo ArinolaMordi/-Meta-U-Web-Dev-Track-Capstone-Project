@@ -10,8 +10,7 @@ import React from "react";
 import Recommendation from "./Recommendation";
 import Resources from "./NavBar/Resources";
 import SignupForm from "./NavBar/SignUpForm";
-import Recommendation from "./Recommendation";
-import MapView from "./MapView";
+
 
 
 function App() {
