@@ -7,10 +7,9 @@ import multer from "multer";
 import path from "path";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
-
 import { sequelize } from "./Database.js";
 import userRoutes from "./Routes/users.js";
-import { Uploads, Videos } from "./models/index.js";
+import { Profile, Uploads, Videos } from "./models/index.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -89,9 +88,23 @@ app.post("/uploads", upload.single("Image"), async (req, res) => {
       Image: imageUrl,
     });
     res.json(project);
-    console.log(project);
+  
   } catch (error) {
-    console.error("Error:", error);
+    res.status(500).json({ message: "Server Error" });
+  }
+});
+app.post("/profile", async (req, res) => {
+  try {
+    const { Age, Bio, FavoriteQuote, SocialHandles, Education, userId } = req.body;
+    const ProfileInfo = await Profile.create({
+      Age,
+      Bio,
+      FavoriteQuote,
+      SocialHandles,
+      Education,
+      userId,
+    });
+  } catch (error) {
     res.status(500).json({ message: "Server Error" });
   }
 });
@@ -99,7 +112,14 @@ app.get("/uploads", async (req, res) => {
   try {
     const uploads = await Uploads.findAll();
     res.json(uploads);
-    console.log(uploads);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+app.get("/profile", async (req, res) => {
+  try {
+    const profileInfo = await Profile.findAll();
+    res.json(profileInfo);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
