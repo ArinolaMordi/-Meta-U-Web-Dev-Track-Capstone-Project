@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
-import React from "react";
-import { Link } from "react-router-dom";
-
-import PopUp from "../PopUp";
 import "./Resources.css";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import PopUp from "../PopUp";
+import React from "react";
 
 export default function Resources({ handleVideoWatched, watchedVideosCount }) {
   const [ttvideos, setTTVideos] = useState([]);
@@ -33,11 +32,31 @@ export default function Resources({ handleVideoWatched, watchedVideosCount }) {
   const handleUpload = () => {
     setUploadFeature(!uploadfeature);
   };
+  const linkStyle = {
+    display: "inline-block",
+    textDecoration: "none",
+    color: "white",
+    backgroundColor: "#007bff",
+    padding: "8px 12px",
+    borderRadius: "5px",
+    marginBottom: "10px",
+  };
+  const tinyThinkerStyle = {
+    backgroundColor: "#f0f0f0",
+    padding: "16px",
+    borderRadius: "20px",
+    textAlign: "center",
+    fontSize: "18px",
+    fontWeight: "bold",
+    color: "#8aaae5",
+  };
 
   return (
     <div className="videos">
-      <h1 style={{ color: "#8aaae5" }}> Resources </h1>
-      <Link to="/recommendations">Daily Recommendations</Link>
+      <h1 style={{ color: "#8aaae5", textDecoration: "none" }}> Resources </h1>
+      <Link to="/recommendations" style={linkStyle}>
+        Daily Recommendations
+      </Link>
       <div className="videosGrid">
         {ttvideos.map((ttvideo) => (
           <div className="videosCard" key={ttvideo.id}>
@@ -65,13 +84,14 @@ export default function Resources({ handleVideoWatched, watchedVideosCount }) {
         ))}
       </div>
       <div>
-        <p className="tinyThinker">
+        <p className="tinyThinker" style={tinyThinkerStyle}>
           Hey Tiny Thinker ! Congratulations on completing the videos Upload
           your image here !
           <button
             onClick={handleUpload}
             type="UploadButton"
             className="uploadBtn"
+            style={{ marginRight: "800px" }}
           >
             Upload here
           </button>

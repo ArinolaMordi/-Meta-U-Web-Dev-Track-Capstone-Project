@@ -1,12 +1,6 @@
-import {
-  GoogleMap,
-  InfoWindow,
-  Marker,
-  useLoadScript,
-} from "@react-google-maps/api";
-
-import React, { useEffect, useMemo, useRef, useState } from "react";
 import "./MapView.css";
+import {GoogleMap,InfoWindow, Marker,useLoadScript,} from "@react-google-maps/api";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
 const overlapRadius = 10;
 const MapView = () => {
@@ -157,4 +151,3 @@ const MapView = () => {
   );
 };
 export default MapView;
-

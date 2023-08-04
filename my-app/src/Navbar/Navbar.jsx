@@ -1,10 +1,9 @@
-import { useContext } from "react";
-import React from "react";
+import "./NavBar.css";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { Link } from "react-router-dom";
-
+import { useContext } from "react";
 import { UserContext } from "../UserContext";
-import "./NavBar.css";
+import React from "react";
 
 export default function Navbar({ handleLogout }) {
   const { user } = useContext(UserContext);
@@ -20,8 +19,9 @@ export default function Navbar({ handleLogout }) {
     <div className="navBar">
       <h1
         className="header"
-        style={{ textDecoration: "none", marginRight: "600px" }}
+        style={{ textDecoration: "none", marginRight: "480px" }}
       >
+        {" "}
         Tiny Thinkers <HiOutlineLightBulb />
       </h1>
       <Link to="/" className="navLinks">

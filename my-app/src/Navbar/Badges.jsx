@@ -1,7 +1,8 @@
-import "./Badges.css";
-import { LiaIdBadgeSolid } from "react-icons/lia";
 import { useEffect, useState } from "react";
 import React from "react";
+import { LiaIdBadgeSolid } from "react-icons/lia";
+
+import "./Badges.css";
 
 export default function Badges({ watchedVideosCount }) {
   const [challengePatchesgotten, setChallengePatchesgotten] = useState(false);

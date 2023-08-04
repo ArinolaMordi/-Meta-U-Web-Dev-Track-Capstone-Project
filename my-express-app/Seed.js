@@ -1,9 +1,8 @@
+import { fileURLToPath } from "url";
+import { Post, Uploads, User, Videos, Profile } from "./models/index.js";
+import { sequelize } from "./Database.js";
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
-
-import { sequelize } from "./Database.js";
-import { Post, Uploads, User, Videos, Profile } from "./models/index.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

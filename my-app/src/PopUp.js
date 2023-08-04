@@ -1,7 +1,6 @@
+import "./PopUp.css";
 import { Autocomplete, useLoadScript } from "@react-google-maps/api";
 import React, { useRef, useState } from "react";
-
-import "./PopUp.css";
 
 const libraries = ["places"];
 
@@ -55,7 +54,6 @@ export default function PopUp({ isOpen, onClose }) {
       }));
     }
   };
-  
 
   const handleChange = (event) => {
     const { name, value, type } = event.target;
@@ -75,7 +73,9 @@ export default function PopUp({ isOpen, onClose }) {
         <button className="closeButton" onClick={onClose}>
           Close
         </button>
-        <h1>Upload your project and view on the map!</h1>
+        <h1 style={{ textDecoration: "none" }}>
+          Upload your project and view on the map!
+        </h1>
         <form
           onSubmit={handleSubmit}
           encType="multipart/form-data"

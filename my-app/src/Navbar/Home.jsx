@@ -1,4 +1,4 @@
-import React from "react";
+import "./Home.css";
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
@@ -7,11 +7,10 @@ import { FaTiktok } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { HiOutlineLightBulb } from "react-icons/hi";
 import { MdEmail } from "react-icons/md";
-
 import engineering from "../engineering.jpg";
 import explore from "../explore.jpg";
 import ligthbulb from "../lightbulb.jpg";
-import "./Home.css";
+import React from "react";
 
 export default function Home() {
   return (
