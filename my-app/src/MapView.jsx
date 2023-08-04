@@ -4,8 +4,8 @@ import {
   Marker,
   useLoadScript,
 } from "@react-google-maps/api";
-import React, { useEffect, useMemo, useRef, useState } from "react";
 
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import "./MapView.css";
 
 const MapView = () => {
@@ -13,12 +13,14 @@ const MapView = () => {
     googleMapsApiKey: "AIzaSyCIdAofDyeBU8kc9VcVfBPGa30voIG7klc",
   });
 
+
   const mapRef = useRef();
   const center = useMemo(() => ({ lat: 37.4406279, lng: -122.1630952 }), []);
   const [overlapRadius, setOverlapRadius] = useState(0.5);
   const [uploads, setUploads] = useState([]);
   const [clusters, setClusters] = useState([]);
   const [selectedCluster, setSelectedCluster] = useState(null);
+
 
   useEffect(() => {
     const fetchLocation = async () => {
@@ -50,6 +52,7 @@ const MapView = () => {
       return null;
     }
   };
+
 
   const markersOverLap = (marker1, marker2) => {
     const latDiff = marker1.position.lat - marker2.position.lat;
@@ -94,6 +97,7 @@ const MapView = () => {
     return 0.5 / Math.pow(2, zoom - 5);
   };
  // https://stackoverflow.com/questions/9481228/math-and-java-find-an-available-index-from-a-scale-value
+
   return (
     <div className="maps">
       {!isLoaded ? (
@@ -141,6 +145,7 @@ const MapView = () => {
                     />
                   </div>
                 ))}
+
               </div>
             </InfoWindow>
           )}

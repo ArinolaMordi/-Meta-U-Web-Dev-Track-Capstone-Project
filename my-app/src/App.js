@@ -10,8 +10,6 @@ import React from "react";
 import Recommendation from "./Recommendation";
 import Resources from "./NavBar/Resources";
 import SignupForm from "./NavBar/SignUpForm";
-import Recommendation from "./Recommendation";
-import MapView from "./MapView";
 
 
 function App() {
@@ -34,7 +32,6 @@ function App() {
   const handleLogout = () => {
     updateUser(null);
   };
-
 
   return (
     <div>
@@ -60,7 +57,8 @@ function App() {
             <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignupForm />} />
             <Route path="/recommendations" element={<Recommendation />} />
-            <Route path ="/maps" element= {<MapView/>} />
+            <Route path="/maps" element={<MapView />} />
+
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>
