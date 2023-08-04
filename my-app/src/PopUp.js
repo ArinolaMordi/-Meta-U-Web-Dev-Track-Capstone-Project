@@ -57,8 +57,6 @@ export default function PopUp({ isOpen, onClose }) {
     }
   };
   
-
-
   const handleChange = (event) => {
     const { name, value, type } = event.target;
     const inputValue = type === "file" ? event.target.files[0] : value;

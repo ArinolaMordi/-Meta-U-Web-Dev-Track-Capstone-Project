@@ -36,7 +36,7 @@ export default function Resources({ handleVideoWatched, watchedVideosCount }) {
 
   return (
     <div className="videos">
-      <h1> Resources </h1>
+      <h1 style={{ color: "#8aaae5" }}> Resources </h1>
       <Link to="/recommendations">Daily Recommendations</Link>
       <div className="videosGrid">
         {ttvideos.map((ttvideo) => (

@@ -7,7 +7,13 @@
 .navLinks {
   color: white;
   margin: 20px;
-  margin-left: 150px;
+  font-family: "fantasy";
+  border-style: solid;
+  border-radius: 20px;
+  padding: 10px;
+  text-decoration: none;
+  border-color: aqua;
+  background-color: #667eab;
 }
 .header {
   color: white;
