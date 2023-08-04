@@ -6,12 +6,11 @@ import Home from "./NavBar/Home";
 import LoginForm from "./NavBar/LoginForm";
 import MapView from "./MapView";
 import Navbar from "./NavBar/Navbar";
+import Profile from "./NavBar/Profile";
 import React from "react";
 import Recommendation from "./Recommendation";
 import Resources from "./NavBar/Resources";
 import SignupForm from "./NavBar/SignUpForm";
-
-
 
 function App() {
   const [user, setUser] = useState(() => {
@@ -33,7 +32,6 @@ function App() {
   const handleLogout = () => {
     updateUser(null);
   };
-
 
   return (
     <div>
@@ -59,7 +57,8 @@ function App() {
             <Route path="/login" element={<LoginForm />} />
             <Route path="/signup" element={<SignupForm />} />
             <Route path="/recommendations" element={<Recommendation />} />
-            <Route path ="/maps" element= {<MapView/>} />
+            <Route path="/maps" element={<MapView />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>
