@@ -1,15 +1,15 @@
-import SequelizeStoreInit from "connect-session-sequelize";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import { Profile, Uploads, Videos } from "./models/index.js";
+import { sequelize } from "./Database.js";
 import cors from "cors";
 import express from "express";
-import session from "express-session";
 import morgan from "morgan";
 import multer from "multer";
 import path from "path";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { sequelize } from "./Database.js";
+import SequelizeStoreInit from "connect-session-sequelize";
+import session from "express-session";
 import userRoutes from "./Routes/users.js";
-import { Profile, Uploads, Videos } from "./models/index.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -80,7 +80,6 @@ app.post("/uploads", upload.single("Image"), async (req, res) => {
   try {
     const { ProjectName, Describe, Location } = req.body;
     const imageUrl = req.file.filename;
-    console.log(__dirname);
     const project = await Uploads.create({
       ProjectName,
       Describe,
@@ -88,14 +87,14 @@ app.post("/uploads", upload.single("Image"), async (req, res) => {
       Image: imageUrl,
     });
     res.json(project);
-  
   } catch (error) {
     res.status(500).json({ message: "Server Error" });
   }
 });
 app.post("/profile", async (req, res) => {
   try {
-    const { Age, Bio, FavoriteQuote, SocialHandles, Education, userId } = req.body;
+    const { Age, Bio, FavoriteQuote, SocialHandles, Education, userId } =
+      req.body;
     const ProfileInfo = await Profile.create({
       Age,
       Bio,
