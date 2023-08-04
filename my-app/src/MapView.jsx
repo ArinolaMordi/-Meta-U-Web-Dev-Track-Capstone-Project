@@ -56,10 +56,10 @@ const MapView = () => {
     var p2 = mapRef.current.getProjection().fromLatLngToPoint(marker2.position);
     var pixelSize = Math.pow(2, -mapRef.current.getZoom());
 
-    var d =
+    var distance =
       Math.sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y)) /
       pixelSize;
-    return d < overlapRadius;
+    return distance < overlapRadius;
   }
 
   useEffect(() => {
@@ -111,8 +111,7 @@ const MapView = () => {
           zoom={13}
           onZoomChanged={() => {
             if (mapRef.current) {
-              const newZoom = mapRef.current.getZoom();
-              setZoomLevel(newZoom);
+              setZoomLevel(mapRef.current.getZoom())
             }
           }}
         >
