@@ -38,7 +38,9 @@ export default function Navbar({ handleLogout }) {
       </Link>
       {user ? (
         <>
-          <span className="navLinks">Hi {user.username}! </span>
+          <Link to="/profile" className="navLinks">
+            Hi {user.username}!{" "}
+          </Link>
           <button onClick={handleLogout} className="navLinks">
             Logout
           </button>
