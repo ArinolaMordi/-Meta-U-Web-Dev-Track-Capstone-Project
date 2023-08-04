@@ -59,6 +59,7 @@ function App() {
             <Route path="/recommendations" element={<Recommendation />} />
             <Route path="/maps" element={<MapView />} />
             <Route path="/profile" element={<Profile />} />
+
           </Routes>
         </BrowserRouter>
       </UserContext.Provider>
