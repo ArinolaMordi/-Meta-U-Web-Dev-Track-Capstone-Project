@@ -47,20 +47,17 @@ export default function PopUp({ isOpen, onClose }) {
 
   const handlePlaceChanged = () => {
     const place = autocompleteRef.current.getPlace();
-    if (place?.geometry) {
-      const {
-        formatted_address,
-        geometry: { location: loc },
-      } = place;
-      const { lat, lng } = loc;
+
+    if (place) {
+      const { formatted_address } = place;
       setForm((prevForm) => ({
         ...prevForm,
         Location: formatted_address,
-        Latitude: lat(),
-        Longitude: lng(),
       }));
     }
   };
+  
+
 
   const handleChange = (event) => {
     const { name, value, type } = event.target;
