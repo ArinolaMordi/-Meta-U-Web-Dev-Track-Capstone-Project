@@ -14,7 +14,6 @@ import Recommendation from "./Recommendation";
 import MapView from "./MapView";
 
 
-
 function App() {
   const [user, setUser] = useState(() => {
     const storedUser = localStorage.getItem("user");
