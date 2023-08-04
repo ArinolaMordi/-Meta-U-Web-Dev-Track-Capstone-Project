@@ -1,0 +1,10 @@
+[
+    {
+        "Age": 9,
+       "Bio": "I'm a passionate web developer with a love for programming and problem-solving.",
+        "FavoriteQuote": "The only way to do great work is to love what you do. - Steve Jobs",
+        "SocialHandles": "@webdev_guru",
+        "Education": "Bachelor of Science in Computer Science",
+        "userId": 1
+      }
+]
