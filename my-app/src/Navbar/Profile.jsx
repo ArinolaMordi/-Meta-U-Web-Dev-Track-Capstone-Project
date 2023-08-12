@@ -38,7 +38,7 @@ export default function Profile() {
         },
         body: JSON.stringify(updatedForm),
       });
-      setSaved(true)
+      setSaved(true);
       if (!response.ok) {
         throw new Error("Failed to save the project data.");
       }
@@ -75,71 +75,100 @@ export default function Profile() {
   }
   return (
     <div className="userProfile">
-      <h2>Welcome, {user.username}!</h2>
+      <h1 style={{ marginLeft: "30px", textDecoration: "none" }}>
+        Welcome, {user.username}!
+      </h1>
       {profiles.map((profile) => (
         <div key={profile.id}>
           {profile.userId === user.id ? (
-            <div>
-              <p>Age: {profile.Age}</p>
-              <p>Bio: {profile.Bio}</p>
-              <p>Favorite Quote: {profile.FavoriteQuote}</p>
-              <p>Social Handles: {profile.SocialHandles}</p>
-              <p>Education: {profile.Education}</p>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+                borderRadius: "39px",
+                border: "20px solid white", 
+                padding: "20px",
+                margin: "10px", 
+              
+                
+              }}
+            >
+              <h3>Age: {profile.Age}</h3>
+              <h3>Bio: {profile.Bio}</h3>
+              <h3>Favorite Quote: {profile.FavoriteQuote}</h3>
+              <h3>Social Handles: {profile.SocialHandles}</h3>
+              <h3>Education: {profile.Education}</h3>
             </div>
           ) : null}
         </div>
       ))}
       {profiles.every((profile) => profile.userId !== user.id) && (
-        <form onSubmit={handleSubmit} method="post">
-          <label>
-            Age:
-            <input
-              type="number"
-              name="Age"
-              value={form.Age}
-              onChange={handleChange}
-            />
-          </label>
-          <br />
-          <label>
-            Bio:
-            <textarea name="Bio" value={form.Bio} onChange={handleChange} />
-          </label>
-          <br />
-          <label>
-            Favorite Quote:
-            <input
-              type="text"
-              name="FavoriteQuote"
-              value={form.FavoriteQuote}
-              onChange={handleChange}
-            />
-          </label>
-          <br />
-          <label>
-            Social Handles:
-            <input
-              type="text"
-              name="SocialHandles"
-              value={form.SocialHandles}
-              onChange={handleChange}
-            />
-          </label>
-          <br />
-          <label>
-            Education:
-            <input
-              type="text"
-              name="Education"
-              value={form.Education}
-              onChange={handleChange}
-            />
-          </label>
-          <br />
-          <button type="submit" disabled={saved}>
-            {saved ? "Saved" : "Save"}
-          </button>
-        </form>
+        <div>
+          <form
+            onSubmit={handleSubmit}
+            method="post"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+          >
+            <h2 style={{ textDecoration: "none", color: "black" }}>
+              Complete your profile{" "}
+            </h2>
+            <label>
+              Age:
+              <input
+                type="number"
+                name="Age"
+                value={form.Age}
+                onChange={handleChange}
+              />
+            </label>
+            <br />
+            <label>
+              Bio:
+              <textarea name="Bio" value={form.Bio} onChange={handleChange} />
+            </label>
+            <br />
+            <label>
+              Favorite Quote:
+              <input
+                type="text"
+                name="FavoriteQuote"
+                value={form.FavoriteQuote}
+                onChange={handleChange}
+              />
+            </label>
+            <br />
+            <label>
+              Social Handles:
+              <input
+                type="text"
+                name="SocialHandles"
+                value={form.SocialHandles}
+                onChange={handleChange}
+              />
+            </label>
+            <br />
+            <label>
+              Education:
+              <input
+                type="text"
+                name="Education"
+                value={form.Education}
+                onChange={handleChange}
+              />
+            </label>
+            <br />
+            <button type="submit" disabled={saved}>
+              {saved ? "Saved" : "Save"}
+            </button>
+          </form>
+        </div>
       )}
     </div>
   );

@@ -68,7 +68,7 @@ export default function Recommendation() {
     <div className="generalDiv">
       <div className="sideBar">
         <div>
-          <h1>Recommendations for you</h1>
+          <h1 style={{ textDecoration: "none" }}>Recommendations for you</h1>
         </div>
         <div>
           <h3>Select Your Difficulty Level</h3>
@@ -132,17 +132,19 @@ export default function Recommendation() {
         </div>
         <div>
           <h3>Select Interests:</h3>
-          {interests.map((interest) => (
-            <label key={interest.id}>
-              <input
-                type="checkbox"
-                value={interest.name}
-                checked={selectedInterests.includes(interest.name)}
-                onChange={handleInterest}
-              />
-              {interest.name}
-            </label>
-          ))}
+          <div className="interestsAlign">
+            {interests.map((interest) => (
+              <label key={interest.id}>
+                <input
+                  type="checkbox"
+                  value={interest.name}
+                  checked={selectedInterests.includes(interest.name)}
+                  onChange={handleInterest}
+                />
+                {interest.name}
+              </label>
+            ))}
+          </div>
         </div>
         <button onClick={handleSubmit}>Get Recommendations</button>
       </div>

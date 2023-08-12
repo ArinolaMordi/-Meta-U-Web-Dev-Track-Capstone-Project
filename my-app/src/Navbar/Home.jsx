@@ -45,6 +45,7 @@ export default function Home() {
             backgroundColor: "#f0f8ff",
             maxWidth: "600px",
             padding: "20px",
+            textDecoration: "none",
           }}
         >
           About Us

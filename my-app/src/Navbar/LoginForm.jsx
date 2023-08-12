@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import { UserContext } from "../UserContext.js";
+import "./LoginForm.css"
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
@@ -40,7 +40,15 @@ const LoginForm = () => {
 
   return (
     <div className="loginFormContainer">
+      <div
+        className="backgroundImage"
+        style={{
+          backgroundImage: `url("https://img.freepik.com/free-vector/rainbow-frame-background-blue-aesthetic-grid-pattern-with-cute-doodle-vector_53876-151424.jpg?w=1380&t=st=1691169765~exp=1691170365~hmac=3beda00320e6813b543c607cd4314f447391559070c68766d49870ec93381ccd")`,
+        }}
+      >
       <form className="loginForm" onSubmit={handleLogin}>
+        <h1 style={{textDecoration:"none"}}>Welcome Back !</h1>
+        <br></br>
         <h2>Login</h2>
         <div className="formGroup">
           <label htmlFor="username">Username:</label>
@@ -67,6 +75,7 @@ const LoginForm = () => {
           New to the app? <Link to="/signup">Sign Up</Link>
         </p>
       </form>
+      </div>
     </div>
   );
 };

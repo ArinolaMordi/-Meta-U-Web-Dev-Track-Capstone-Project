@@ -80,6 +80,7 @@ export default function PopUp({ isOpen, onClose }) {
           onSubmit={handleSubmit}
           encType="multipart/form-data"
           method="post"
+          style={{ display: "flex", flexDirection: "column" }}
         >
           <label>Name of project:</label>
           <input

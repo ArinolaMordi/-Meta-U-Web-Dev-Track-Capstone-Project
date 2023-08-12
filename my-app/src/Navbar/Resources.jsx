@@ -86,7 +86,7 @@ export default function Resources({ handleVideoWatched, watchedVideosCount }) {
       <div>
         <p className="tinyThinker" style={tinyThinkerStyle}>
           Hey Tiny Thinker ! Congratulations on completing the videos Upload
-          your image here !
+          your project here !
           <button
             onClick={handleUpload}
             type="UploadButton"
